@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master Pro - Interactive Online Quiz</title>
+    <meta name="description" content="A premium interactive quiz game with categories, difficulty levels, and real-time performance tracking.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Section -->
+        <section id="auth-section" class="glass-container">
+            <h1 class="logo">Quiz<span>Master</span></h1>
+            <div id="login-form" class="form-container">
+                <h2>Welcome Back</h2>
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button id="login-btn" class="btn-primary">Login</button>
+                <p>Don't have an account? <a href="#" id="to-register">Register</a></p>
+            </div>
+            
+            <div id="register-form" class="form-container hidden">
+                <h2>Create Account</h2>
+                <div class="input-group">
+                    <input type="text" id="reg-username" placeholder="Choose Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="reg-password" placeholder="Choose Password" required>
+                </div>
+                <button id="register-btn" class="btn-secondary">Register</button>
+                <p>Already have an account? <a href="#" id="to-login">Login</a></p>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="hidden">
+            <header class="main-header">
+                <div class="user-info">
+                    <div class="avatar">👤</div>
+                    <span id="display-name">User</span>
+                </div>
+                <button id="logout-btn" class="btn-small">Logout</button>
+            </header>
+            
+            <div class="dashboard-grid">
+                <div class="card quiz-config">
+                    <h3>Start New Quiz</h3>
+                    <div class="select-group">
+                        <label>Category</label>
+                        <select id="category-select">
+                            <option value="Science">Science</option>
+                            <option value="Technology">Technology</option>
+                            <option value="English">English</option>
+                            <option value="General Knowledge">General Knowledge</option>
+                        </select>
+                    </div>
+                    <div class="select-group">
+                        <label>Difficulty</label>
+                        <select id="difficulty-select">
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                    <button id="start-quiz-btn" class="btn-primary full-width">Launch Quiz</button>
+                </div>
+
+                <div class="card history-card">
+                    <h3>Recent History</h3>
+                    <div id="history-list" class="list-container">
+                        <p class="empty-msg">No recent activity</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="hidden">
+            <div class="quiz-header">
+                <div id="timer-display" class="timer">15</div>
+                <div class="progress-bar-container">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="question-card glass">
+                <p id="question-count">Question 1 of 10</p>
+                <h2 id="question-text">Loading question...</h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Options will be injected here -->
+                </div>
+                <button id="next-btn" class="btn-primary" disabled>Next Question</button>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result-section" class="hidden">
+            <div class="result-card glass">
+                <div class="trophy">🏆</div>
+                <h2>Quiz Completed!</h2>
+                <div class="score-display">
+                    <span id="final-score">0</span>
+                    <p>Total Points</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span id="stat-correct">0</span>
+                        <p>Correct</p>
+                    </div>
+                    <div class="stat">
+                        <span id="stat-wrong">0</span>
+                        <p>Wrong</p>
+                    </div>
+                    <div class="stat">
+                        <span id="stat-percent">0%</span>
+                        <p>Accuracy</p>
+                    </div>
+                </div>
+                <div id="grade-badge" class="badge">Grade: A</div>
+                <button id="finish-btn" class="btn-primary">Back to Home</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
